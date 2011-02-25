@@ -115,6 +115,35 @@ class DotBlockAPI {
   // --------------------------------------------------------------------
 
   /**
+   * Get client info
+   *
+   * @return array
+   */
+
+  public function client_info() {
+    return $this->send_request("/v1/account.json");
+  }
+
+  // --------------------------------------------------------------------
+
+  /**
+   * Update client info
+   *
+   * @param  array $info  parameters for update
+   * @return array
+   */
+
+  public function update_client_info($info = array()) {
+    $params = array();
+    foreach ($info as $key => $val) {
+      $params["info[{$key}]"] = $val;
+    }
+    return $this->send_request("/v1/account.json", 'PUT', $params);
+  }
+
+  // --------------------------------------------------------------------
+
+  /**
    * Send API request to api.dotblock.com
    *
    * @param  string $url     The URL to submit to

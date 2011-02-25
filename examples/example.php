@@ -24,3 +24,9 @@ var_dump($dotblock->resume_server(123456));
 
 // Shutdown server 123456
 var_dump($dotblock->shutdown_server(123456));
+
+// Get client info
+var_dump($dotblock->client_info());
+
+// Update client info
+var_dump($dotblock->update_client_info(array('firstname' => 'Joshua', 'lastname' => 'Priddle')));
